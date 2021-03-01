@@ -28,6 +28,7 @@ class GamesController < ApplicationController
   def included?(word, letters)
     word.split("").all? { |letter| letters.include?(letter.upcase) }
   end
+  
   def english_word?(word)
     url = open("https://wagon-dictionary.herokuapp.com/#{word}")
     json = JSON.parse(url.read)
